@@ -13,6 +13,7 @@ import {
   ResetData,
 } from './shared/app-actions';
 import { Resource } from 'src/models/Resource';
+import { Player } from 'src/models/Player';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -20,6 +21,7 @@ import { Resource } from 'src/models/Resource';
 })
 export class AppComponent implements OnInit {
   @Select(AppState.resource) resource$!: Observable<Resource>;
+  @Select(AppState.players) players$!: Observable<Player[]>;
 
   constructor(private store: Store) {}
 
@@ -28,11 +30,10 @@ export class AppComponent implements OnInit {
   }
 
   handleSelectedOption(resource: Resource) {
-    console.log(resource);
     this.store.dispatch(new ChangeResource(resource));
   }
 
-  onPlayClicked() {
+  handlePlayButton() {
     this.store.dispatch(new ResetData());
     this.store.dispatch(new DrawNumbers());
     this.resource$
