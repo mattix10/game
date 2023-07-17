@@ -14,7 +14,7 @@ export class HttpDataService {
   constructor(private httpClient: HttpClient) {}
 
   getPeople(numbers: number[]): Observable<Person[]> {
-    return this.getData(numbers, Resource.Starships);
+    return this.getData(numbers, Resource.People);
   }
 
   getStarships(numbers: number[]): Observable<Starship[]> {
