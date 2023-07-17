@@ -27,11 +27,12 @@ export class AppComponent implements OnInit {
     this.store.dispatch(new CreatePlayers(['Player 1', 'Player 2']));
   }
 
-  onChangeResource() {
-    this.store.dispatch(new ChangeResource(Resource.Starships));
+  handleSelectedOption(resource: Resource) {
+    console.log(resource);
+    this.store.dispatch(new ChangeResource(resource));
   }
 
-  play() {
+  onPlayClicked() {
     this.store.dispatch(new ResetData());
     this.store.dispatch(new DrawNumbers());
     this.resource$

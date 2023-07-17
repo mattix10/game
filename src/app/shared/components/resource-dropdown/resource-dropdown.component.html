@@ -1,0 +1,11 @@
+<mat-form-field>
+  <mat-label>Select resource</mat-label>
+  <mat-select
+    [formControl]="selectedOption"
+    (selectionChange)="onSelectedOptionChange()"
+  >
+    <mat-option *ngFor="let option of options" [value]="option.resource">
+      {{ option.value }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

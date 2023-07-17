@@ -1,1 +1,4 @@
-<button (click)="play()">play</button>
+<button mat-raised-button color="primary" (click)="onPlayClicked()">
+  Play
+</button>
+<app-resource-dropdown (selectedOptionChange)="handleSelectedOption($event)" />
