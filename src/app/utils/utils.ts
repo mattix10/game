@@ -14,3 +14,6 @@ export const drawNumbers = (): [number, number] => {
 
   return [number1, number2];
 };
+
+export const getWinnerIndex = (winnerIndexes: number[]) =>
+  winnerIndexes.length === 1 ? winnerIndexes[0] : null;
