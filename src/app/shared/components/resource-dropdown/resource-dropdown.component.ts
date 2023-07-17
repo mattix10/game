@@ -21,15 +21,15 @@ import { CommonModule } from '@angular/common';
   ],
 })
 export class ResourceDropdownComponent {
-  selectedOption = new FormControl();
   options: Option[] = [
     { value: 'People', resource: Resource.People },
     { value: 'Starships', resource: Resource.Starships },
   ];
+  selectedOption = new FormControl(this.options[0].resource);
 
   @Output() selectedOptionChange = new EventEmitter<Resource>();
 
   onSelectedOptionChange() {
-    this.selectedOptionChange.emit(this.selectedOption.value);
+    this.selectedOptionChange.emit(this.selectedOption.value!);
   }
 }
