@@ -38,6 +38,11 @@ export class AppState {
     return resource;
   }
 
+  @Selector()
+  static players({ players }: AppStateModel) {
+    return players;
+  }
+
   @Action(CreatePlayers)
   createPlayers(
     { getState, setState }: StateContext<AppStateModel>,

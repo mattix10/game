@@ -6,7 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxsModule } from '@ngxs/store';
 import { AppState } from './shared/app.state';
 import { ResourceDropdownComponent } from './shared/components/resource-dropdown/resource-dropdown.component';
-
+import { CardComponent } from './shared/components/card/card.component';
+import { MatButtonModule } from '@angular/material/button';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -14,6 +15,8 @@ import { ResourceDropdownComponent } from './shared/components/resource-dropdown
     BrowserAnimationsModule,
     HttpClientModule,
     ResourceDropdownComponent,
+    CardComponent,
+    MatButtonModule,
     NgxsModule.forRoot([AppState]),
   ],
   providers: [],
