@@ -1,9 +1,9 @@
-import { People } from 'src/app/app.component';
+import { Person } from './Person';
 import { Starship } from './Starship';
 
 export interface Player {
   name: string;
   starship: Starship | null;
-  people: People | null;
+  person: Person | null;
   scores: number;
 }
