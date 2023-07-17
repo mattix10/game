@@ -38,3 +38,16 @@ export class ResetData {
 export class CheckWinner {
   static readonly type = '[App] CheckWinner';
 }
+
+export class getMassWinnerIndex {
+  static readonly type = '[App] getMassWinnerIndex';
+}
+
+export class GetCrewWinnerIndex {
+  static readonly type = '[App] GetCrewWinnerIndex';
+}
+
+export class AddPointsToWinner {
+  static readonly type = '[App] AddPointsToWinner';
+  constructor(public scores: number) {}
+}
