@@ -10,6 +10,10 @@ export class ClearPeople {
   constructor(public payload: any) {}
 }
 
+export class LoadData {
+  static readonly type = '[Player] LoadData';
+}
+
 export class LoadPeople {
   static readonly type = '[Player] LoadPeople';
 }

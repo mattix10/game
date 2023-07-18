@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, switchMap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { AppState } from './shared/app.state';
 import { Store, Select } from '@ngxs/store';
 import {
@@ -8,6 +8,7 @@ import {
   CheckWinner,
   CreatePlayers,
   DrawNumbers,
+  LoadData,
   LoadPeople,
   LoadStarships,
   ResetData,
@@ -36,12 +37,10 @@ export class AppComponent implements OnInit {
   handlePlayButton() {
     this.store.dispatch(new ResetData());
     this.store.dispatch(new DrawNumbers());
-    this.resource$
-      .pipe(switchMap((resource: Resource) => this.loadData(resource)))
-      .subscribe(() => {
-        this.store.dispatch(new CheckWinner());
-        this.store.dispatch(new AddPointsToWinner(1));
-      });
+    this.store.dispatch(new LoadData()).subscribe(() => {
+      this.store.dispatch(new CheckWinner());
+      this.store.dispatch(new AddPointsToWinner(1));
+    });
   }
 
   loadData(resource: Resource) {

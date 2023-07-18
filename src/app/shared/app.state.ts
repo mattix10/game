@@ -8,6 +8,7 @@ import {
   DrawNumbers,
   GetCrewWinnerIndex,
   getMassWinnerIndex,
+  LoadData,
   LoadPeople,
   LoadStarships,
   ResetData,
@@ -59,6 +60,13 @@ export class AppState {
     });
   }
 
+  @Action(LoadData)
+  loadData({ getState, dispatch }: StateContext<AppStateModel>) {
+    return getState().resource === Resource.People
+      ? dispatch(new LoadPeople())
+      : dispatch(new LoadStarships());
+  }
+
   @Action(LoadPeople)
   loadPeople({ getState, setState }: StateContext<AppStateModel>) {
     const { drawNumbers } = getState();
@@ -78,6 +86,7 @@ export class AppState {
   @Action(LoadStarships)
   loadStarships({ getState, setState }: StateContext<AppStateModel>) {
     const { drawNumbers } = getState();
+    console.log('load starships');
     return this.httpDataService.getStarships(drawNumbers).pipe(
       tap((starships) =>
         setState({
