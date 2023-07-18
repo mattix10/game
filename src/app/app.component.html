@@ -1,14 +1,9 @@
-<div class="card-container">
-  <ng-container *ngFor="let player of players$ | async">
-    <app-person-card
-      [person]="player.person"
-      *ngIf="player.person"
-    ></app-person-card>
-    <app-starship-card
-      [starship]="player.starship"
-      *ngIf="player.starship"
-    ></app-starship-card>
-  </ng-container>
+<div class="players-container">
+  <div *ngFor="let player of players$ | async" class="player">
+    <app-player-info [player]="player" *ngIf="player" />
+    <app-person-card [person]="player.person" *ngIf="player.person" />
+    <app-starship-card [starship]="player.starship" *ngIf="player.starship" />
+  </div>
 </div>
 
 <div class="control-container">

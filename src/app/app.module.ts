@@ -12,8 +12,9 @@ import { StarshipCardComponent } from './shared/components/starship-card/starshi
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { PlayerInfoComponent } from './shared/components/player-info/player-info.component';
 @NgModule({
-  declarations: [AppComponent, PersonCardComponent, StarshipCardComponent],
+  declarations: [AppComponent, PersonCardComponent, StarshipCardComponent, PlayerInfoComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
