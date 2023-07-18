@@ -13,7 +13,7 @@ import {
   LoadStarships,
   ResetData,
   SetError,
-} from '../components/app-actions';
+} from './app-actions';
 import { Injectable } from '@angular/core';
 import { HttpDataService } from '../../services/http-data/http-data.service';
 import { catchError, tap, throwError } from 'rxjs';

@@ -4,7 +4,7 @@ import { NgxsModule, Store } from '@ngxs/store';
 import { AppState } from './shared/store/app.state';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { Resource } from 'src/models/Resource';
-import { CreatePlayers } from './shared/components/app-actions';
+import { CreatePlayers } from './shared/store/app-actions';
 
 describe('AppComponent', () => {
   let app: AppComponent;

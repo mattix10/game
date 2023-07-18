@@ -10,7 +10,7 @@ import {
   DrawNumbers,
   LoadData,
   ResetData,
-} from './shared/components/app-actions';
+} from './shared/store/app-actions';
 import { Resource } from 'src/models/Resource';
 import { Player } from 'src/models/Player';
 @Component({
