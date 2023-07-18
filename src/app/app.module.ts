@@ -6,17 +6,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgxsModule } from '@ngxs/store';
 import { AppState } from './shared/app.state';
 import { ResourceDropdownComponent } from './shared/components/resource-dropdown/resource-dropdown.component';
-import { CardComponent } from './shared/components/card/card.component';
 import { MatButtonModule } from '@angular/material/button';
+import { PersonCardComponent } from './shared/components/person-card/person-card.component';
+import { StarshipCardComponent } from './shared/components/starship-card/starship-card.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, PersonCardComponent, StarshipCardComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     ResourceDropdownComponent,
-    CardComponent,
     MatButtonModule,
+    MatCardModule,
+    MatDividerModule,
+    MatProgressSpinnerModule,
     NgxsModule.forRoot([AppState]),
   ],
   providers: [],

@@ -1,7 +1,26 @@
-<button mat-raised-button color="primary" (click)="handlePlayButton()">
-  Play
-</button>
-<app-resource-dropdown (selectedOptionChange)="handleSelectedOption($event)" />
-<ng-container *ngFor="let players of players$ | async">
-  <app-card [person]="players.person" [starship]="players.starship" />
-</ng-container>
+<div class="card-container">
+  <ng-container *ngFor="let player of players$ | async">
+    <app-person-card
+      [person]="player.person"
+      *ngIf="player.person"
+    ></app-person-card>
+    <app-starship-card
+      [starship]="player.starship"
+      *ngIf="player.starship"
+    ></app-starship-card>
+  </ng-container>
+</div>
+
+<div class="control-container">
+  <button
+    mat-raised-button
+    color="primary"
+    class="play-button"
+    (click)="handlePlayButton()"
+  >
+    Play
+  </button>
+  <app-resource-dropdown
+    (selectedOptionChange)="handleSelectedOption($event)"
+  />
+</div>
