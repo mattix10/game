@@ -36,8 +36,8 @@ export class AppState {
   constructor(private httpDataService: HttpDataService) {}
 
   @Selector()
-  static resource({ resource }: AppStateModel) {
-    return resource;
+  static winner({ winner }: AppStateModel) {
+    return winner;
   }
 
   @Selector()
