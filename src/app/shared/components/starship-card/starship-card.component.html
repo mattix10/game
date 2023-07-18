@@ -14,6 +14,10 @@
     <p>MGLT: {{ starship.MGLT }}</p>
     <p>cargo capacity: {{ starship.cargo_capacity }}</p>
     <p>consumables: {{ starship.consumables }}</p>
-    <div>pilots: {{ starship.consumables }}</div>
+    <div>
+      pilots:
+      <ng-container *ngIf="!starship.pilots.length">-</ng-container>
+      <p *ngFor="let pilot of starship.pilots">{{ pilot }}</p>
+    </div>
   </mat-card-content>
 </mat-card>
