@@ -1,10 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { GameControlComponent } from './game-control.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { By } from '@angular/platform-browser';
-import { Component, EventEmitter, Output } from '@angular/core';
 import { Resource } from 'src/models/Resource';
+import { ResourceDropdownComponent } from '../resource-dropdown/resource-dropdown.component';
 
 describe('GameControlComponent', () => {
   let component: GameControlComponent;
@@ -15,7 +14,7 @@ describe('GameControlComponent', () => {
       imports: [
         GameControlComponent,
         BrowserAnimationsModule,
-        MockDropdownComponent,
+        ResourceDropdownComponent,
       ],
     }).compileComponents();
 
@@ -39,25 +38,13 @@ describe('GameControlComponent', () => {
   });
 
   it('should emit the event when a specific action is triggered on the child component', () => {
-    const childComponent: MockDropdownComponent = fixture.debugElement.query(
-      By.directive(MockDropdownComponent)
+    const childComponent = fixture.debugElement.query(
+      By.directive(ResourceDropdownComponent)
     ).componentInstance;
 
-    const outputSpy = spyOn(component.onSelectedOptionChange, 'emit');
-    childComponent.onSelectedOptionChange();
+    spyOn(childComponent.selectedOptionChange, 'emit');
+    childComponent.onSelectedOptionChange(Resource.People);
 
-    expect(outputSpy).toHaveBeenCalled();
+    expect(childComponent.selectedOptionChange.emit).toHaveBeenCalled();
   });
 });
-@Component({
-  selector: 'app-mock-dropdown',
-  template: '',
-  standalone: true,
-})
-class MockDropdownComponent {
-  @Output() selectedOptionChange = new EventEmitter<Resource>();
-
-  onSelectedOptionChange() {
-    this.selectedOptionChange.emit(Resource.People);
-  }
-}
