@@ -39,12 +39,12 @@ export class CheckWinner {
   static readonly type = '[App] CheckWinner';
 }
 
-export class getMassWinnerIndex {
-  static readonly type = '[App] getMassWinnerIndex';
+export class getMassWinner {
+  static readonly type = '[App] getMassWinner';
 }
 
-export class GetCrewWinnerIndex {
-  static readonly type = '[App] GetCrewWinnerIndex';
+export class GetCrewWinner {
+  static readonly type = '[App] GetCrewWinner';
 }
 
 export class AddPointsToWinner {

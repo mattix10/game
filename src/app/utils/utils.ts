@@ -1,3 +1,5 @@
+import { Player } from 'src/models/Player';
+
 export const getRandomNumber = (min: number, max: number) =>
   Math.floor(Math.random() * (max - min + 1)) + min;
 
@@ -15,5 +17,5 @@ export const drawNumbers = (): [number, number] => {
   return [number1, number2];
 };
 
-export const getWinnerIndex = (winnerIndexes: number[]) =>
-  winnerIndexes.length === 1 ? winnerIndexes[0] : null;
+export const getWinnerName = (winners: Player[]) =>
+  winners.length === 1 ? winners[0].name : null;

@@ -6,8 +6,8 @@ import {
   CheckWinner,
   CreatePlayers,
   DrawNumbers,
-  GetCrewWinnerIndex,
-  getMassWinnerIndex,
+  GetCrewWinner,
+  getMassWinner,
   LoadData,
   LoadPeople,
   LoadStarships,
@@ -16,7 +16,7 @@ import {
 import { Injectable } from '@angular/core';
 import { HttpDataService } from '../services/http-data/http-data.service';
 import { tap } from 'rxjs';
-import { drawNumbers, getWinnerIndex } from '../utils/utils';
+import { drawNumbers, getWinnerName } from '../utils/utils';
 import { AppStateModel } from 'src/models/AppStateModel';
 
 @State<AppStateModel>({
@@ -27,7 +27,7 @@ import { AppStateModel } from 'src/models/AppStateModel';
     error: null,
     resource: Resource.People,
     drawNumbers: [],
-    winnerIndex: null,
+    winner: null,
   },
 })
 @Injectable()
@@ -86,7 +86,6 @@ export class AppState {
   @Action(LoadStarships)
   loadStarships({ getState, setState }: StateContext<AppStateModel>) {
     const { drawNumbers } = getState();
-    console.log('load starships');
     return this.httpDataService.getStarships(drawNumbers).pipe(
       tap((starships) =>
         setState({
@@ -125,41 +124,40 @@ export class AppState {
       loading: false,
       error: null,
       drawNumbers: [],
-      winnerIndex: null,
+      winner: null,
     });
   }
 
   @Action(CheckWinner)
   checkWinner({ getState, dispatch }: StateContext<AppStateModel>) {
     getState().resource === Resource.People
-      ? dispatch(new getMassWinnerIndex())
-      : dispatch(new GetCrewWinnerIndex());
+      ? dispatch(new getMassWinner())
+      : dispatch(new GetCrewWinner());
   }
 
-  @Action(getMassWinnerIndex)
-  getMassWinnerIndex({ getState, patchState }: StateContext<AppStateModel>) {
+  @Action(getMassWinner)
+  getMassWinner({ getState, patchState }: StateContext<AppStateModel>) {
     const { players } = getState();
     const maxMass = Math.max(
-      ...players.map(({ person }) => Number(person!.mass))
+      ...players.map(({ person }) => parseFloat(person!.mass))
     );
-    const winnerIndexes = players
-      .filter(({ person }) => Number(person!.mass) === maxMass)
-      .map((_, index) => index);
-
-    patchState({ winnerIndex: getWinnerIndex(winnerIndexes) });
+    const winners = players.filter(
+      ({ person }) => parseFloat(person!.mass) === maxMass
+    );
+    patchState({ winner: getWinnerName(winners) });
   }
 
-  @Action(GetCrewWinnerIndex)
-  GetCrewWinnerIndex({ patchState, getState }: StateContext<AppStateModel>) {
+  @Action(GetCrewWinner)
+  GetCrewWinner({ patchState, getState }: StateContext<AppStateModel>) {
     const { players } = getState();
     const maxCrew = Math.max(
-      ...players.map(({ starship }) => Number(starship!.crew))
+      ...players.map(({ starship }) => parseFloat(starship!.crew))
     );
-    const winnerIndexes = players
-      .filter(({ starship }) => Number(starship!.crew) === maxCrew)
-      .map((_, index) => index);
+    const winners = players.filter(
+      ({ starship }) => parseFloat(starship!.crew) === maxCrew
+    );
 
-    patchState({ winnerIndex: getWinnerIndex(winnerIndexes) });
+    patchState({ winner: getWinnerName(winners) });
   }
 
   @Action(AddPointsToWinner)
@@ -167,11 +165,11 @@ export class AppState {
     { setState, getState }: StateContext<AppStateModel>,
     { scores }: AddPointsToWinner
   ) {
-    const { players, winnerIndex } = getState();
+    const { players, winner } = getState();
     setState({
       ...getState(),
-      players: players.map((player, index) =>
-        winnerIndex === index
+      players: players.map((player) =>
+        player.name === winner
           ? { ...player, scores: player.scores + scores }
           : player
       ),
