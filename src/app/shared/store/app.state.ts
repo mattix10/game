@@ -84,10 +84,12 @@ export class AppState {
   @Action(LoadData)
   loadData({ getState, patchState, dispatch }: StateContext<AppStateModel>) {
     patchState({ loading: true });
+
     const obs$ =
       getState().resource === Resource.People
         ? dispatch(new LoadPeople())
         : dispatch(new LoadStarships());
+
     return obs$.pipe(
       tap(() => patchState({ loading: false })),
       catchError((error) =>
@@ -103,6 +105,7 @@ export class AppState {
   @Action(LoadPeople)
   loadPeople({ getState, setState }: StateContext<AppStateModel>) {
     const { drawNumbers } = getState();
+
     return this.httpDataService.getPeople(drawNumbers).pipe(
       tap((people) =>
         setState({
@@ -119,6 +122,7 @@ export class AppState {
   @Action(LoadStarships)
   loadStarships({ getState, setState }: StateContext<AppStateModel>) {
     const { drawNumbers } = getState();
+
     return this.httpDataService.getStarships(drawNumbers).pipe(
       tap((starships) =>
         setState({
@@ -189,7 +193,6 @@ export class AppState {
     const winners = players.filter(
       ({ starship }) => parseFloat(starship!.crew) === maxCrew
     );
-
     patchState({ winner: getWinnerName(winners) });
   }
 
