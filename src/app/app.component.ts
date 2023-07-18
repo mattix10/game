@@ -9,8 +9,6 @@ import {
   CreatePlayers,
   DrawNumbers,
   LoadData,
-  LoadPeople,
-  LoadStarships,
   ResetData,
 } from './shared/app-actions';
 import { Resource } from 'src/models/Resource';
@@ -41,11 +39,5 @@ export class AppComponent implements OnInit {
       this.store.dispatch(new CheckWinner());
       this.store.dispatch(new AddPointsToWinner(1));
     });
-  }
-
-  loadData(resource: Resource) {
-    return resource === Resource.People
-      ? this.store.dispatch(new LoadPeople())
-      : this.store.dispatch(new LoadStarships());
   }
 }
