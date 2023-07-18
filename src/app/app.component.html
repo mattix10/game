@@ -1,10 +1,15 @@
+<app-winner-bar [winner]="winner$ | async" />
 <div class="players-container">
   <div *ngFor="let player of players$ | async" class="player">
-    <app-player-info [player]="player" *ngIf="player" />
+    <app-player-info [player]="player" />
     <app-person-card [person]="player.person" *ngIf="player.person" />
     <app-starship-card [starship]="player.starship" *ngIf="player.starship" />
   </div>
 </div>
+<app-info-wrapper
+  [drawnNumbers]="drawnNumbers"
+  *ngIf="drawnNumbers$ | async as drawnNumbers"
+/>
 <app-game-control
   (onPlayButtonClick)="handlePlayButton()"
   (onSelectedOptionChange)="handleSelectedOption($event)"

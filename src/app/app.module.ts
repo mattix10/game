@@ -13,6 +13,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { PlayerInfoComponent } from './shared/components/player-info/player-info.component';
 import { DrawnNumbersComponent } from './shared/components/drawn-numbers/drawn-numbers.component';
 import { GameControlComponent } from './shared/components/game-control/game-control.component';
+import { InfoWrapperComponent } from './shared/components/info-wrapper/info-wrapper.component';
+import { WinnerBarComponent } from './shared/components/winner-bar/winner-bar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +22,8 @@ import { GameControlComponent } from './shared/components/game-control/game-cont
     StarshipCardComponent,
     PlayerInfoComponent,
     DrawnNumbersComponent,
+    InfoWrapperComponent,
+    WinnerBarComponent,
   ],
   imports: [
     BrowserModule,
