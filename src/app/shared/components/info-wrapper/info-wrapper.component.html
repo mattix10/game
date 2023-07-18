@@ -1,0 +1,13 @@
+<div
+  class="info-wrapper"
+  *ngIf="!drawnNumbers.length || (loading$ | async) || (error$ | async)"
+>
+  <div *ngIf="loading$ | async" class="loading">
+    <mat-spinner [diameter]="80"></mat-spinner>
+    <p class="loading-text">Loading in progress...</p>
+  </div>
+
+  <div *ngIf="error$ | async">
+    {{ error$ | async }}
+  </div>
+</div>

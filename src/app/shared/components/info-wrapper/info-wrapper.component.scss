@@ -1,0 +1,22 @@
+.info-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 10px;
+  text-align: center;
+  width: 800px;
+  height: 400px;
+  align-items: center;
+  background-color: rgb(250, 250, 250);
+  border-radius: 5px;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &-text {
+    margin-top: 15px;
+  }
+}
