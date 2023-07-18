@@ -5,17 +5,11 @@
     <app-starship-card [starship]="player.starship" *ngIf="player.starship" />
   </div>
 </div>
-
-<div class="control-container">
-  <button
-    mat-raised-button
-    color="primary"
-    class="play-button"
-    (click)="handlePlayButton()"
-  >
-    Play
-  </button>
-  <app-resource-dropdown
-    (selectedOptionChange)="handleSelectedOption($event)"
-  />
-</div>
+<app-game-control
+  (onPlayButtonClick)="handlePlayButton()"
+  (onSelectedOptionChange)="handleSelectedOption($event)"
+/>
+<app-drawn-numbers
+  [drawnNumbers]="drawnNumbers"
+  *ngIf="drawnNumbers$ | async as drawnNumbers"
+/>
