@@ -8,9 +8,8 @@ describe('DrawnNumbersComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DrawnNumbersComponent ]
-    })
-    .compileComponents();
+      declarations: [DrawnNumbersComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(DrawnNumbersComponent);
     component = fixture.componentInstance;
@@ -19,5 +18,21 @@ describe('DrawnNumbersComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should display two drawn numbers', () => {
+    component.drawnNumbers = [1, 2];
+    fixture.detectChanges();
+    const element: HTMLElement = fixture.nativeElement;
+    const paragraphElement = element.querySelector('.numbers') as HTMLElement;
+    expect(paragraphElement.textContent).toContain('1 and 2');
+  });
+
+  it('should not display text with drawn numbers', () => {
+    component.drawnNumbers = [];
+    fixture.detectChanges();
+    const element: HTMLElement = fixture.nativeElement;
+    const paragraphElement = element.querySelector('.numbers');
+    expect(paragraphElement).toEqual(null);
   });
 });
