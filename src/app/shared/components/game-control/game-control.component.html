@@ -1,0 +1,13 @@
+<div class="control-container">
+  <button
+    mat-raised-button
+    color="primary"
+    class="play-button"
+    (click)="onPlayButtonClick.emit()"
+  >
+    Play
+  </button>
+  <app-resource-dropdown
+    (selectedOptionChange)="onSelectedOptionChange.emit($event)"
+  />
+</div>
