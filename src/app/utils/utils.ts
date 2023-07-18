@@ -18,4 +18,4 @@ export const drawNumbers = (): [number, number] => {
 };
 
 export const getWinnerName = (winners: Player[]) =>
-  winners.length === 1 ? winners[0].name : null;
+  winners.length === 1 ? winners[0].name : 'Draw';
