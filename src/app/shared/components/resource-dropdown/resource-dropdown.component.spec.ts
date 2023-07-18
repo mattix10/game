@@ -3,7 +3,7 @@ import { ResourceDropdownComponent } from './resource-dropdown.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Resource } from 'src/models/Resource';
 
-fdescribe('ResourceDropdownComponent', () => {
+describe('ResourceDropdownComponent', () => {
   let component: ResourceDropdownComponent;
   let fixture: ComponentFixture<ResourceDropdownComponent>;
 

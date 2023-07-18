@@ -1,10 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { StarshipCardComponent } from './starship-card.component';
 import { starshipsMock } from 'src/mocks/starships';
 import { MatCardModule } from '@angular/material/card';
 
-fdescribe('StarshipCardComponent', () => {
+describe('StarshipCardComponent', () => {
   let component: StarshipCardComponent;
   let fixture: ComponentFixture<StarshipCardComponent>;
 
