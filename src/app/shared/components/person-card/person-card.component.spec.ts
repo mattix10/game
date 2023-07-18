@@ -4,7 +4,7 @@ import { PersonCardComponent } from './person-card.component';
 import { peopleMock } from 'src/mocks/people';
 import { MatCardModule } from '@angular/material/card';
 
-fdescribe('PersonCardComponent', () => {
+describe('PersonCardComponent', () => {
   let component: PersonCardComponent;
   let fixture: ComponentFixture<PersonCardComponent>;
 
