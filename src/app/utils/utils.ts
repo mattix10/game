@@ -3,7 +3,7 @@ export const getRandomNumber = (min: number, max: number) =>
 
 export const drawNumbers = (): [number, number] => {
   const min = 1;
-  const max = 60;
+  const max = 20;
 
   let number1 = getRandomNumber(min, max);
   let number2 = getRandomNumber(min, max);
