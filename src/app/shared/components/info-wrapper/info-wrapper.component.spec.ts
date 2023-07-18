@@ -4,10 +4,9 @@ import { NgxsModule, Store } from '@ngxs/store';
 import { AppState } from '../../app.state';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AppStateModel } from 'src/models/AppStateModel';
-import { Resource } from 'src/models/Resource';
 import { By } from '@angular/platform-browser';
 
-fdescribe('InfoWrapperComponent', () => {
+describe('InfoWrapperComponent', () => {
   let component: InfoWrapperComponent;
   let fixture: ComponentFixture<InfoWrapperComponent>;
   let store: Store;
