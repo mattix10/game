@@ -19,9 +19,9 @@ import { Player } from 'src/models/Player';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  @Select(AppState.resource) resource$!: Observable<Resource>;
   @Select(AppState.players) players$!: Observable<Player[]>;
   @Select(AppState.drawnNumbers) drawnNumbers$!: Observable<number[]>;
+  @Select(AppState.winner) winner$!: Observable<string | null>;
 
   constructor(private store: Store) {}
 
