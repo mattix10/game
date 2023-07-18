@@ -12,4 +12,5 @@ export class InfoWrapperComponent {
   @Select(AppState.loading) loading$!: Observable<boolean>;
   @Select(AppState.error) error$!: Observable<string | null>;
   @Input() drawnNumbers: number[] = [];
+  initialText = "Select resource and click 'Play' button to start a game.";
 }

@@ -10,4 +10,8 @@
   <div *ngIf="error$ | async">
     {{ error$ | async }}
   </div>
+
+  <div *ngIf="!drawnNumbers.length && !(loading$ | async) && !(error$ | async)">
+    {{ initialText }}
+  </div>
 </div>
