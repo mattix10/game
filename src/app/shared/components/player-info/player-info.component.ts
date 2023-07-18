@@ -7,5 +7,5 @@ import { Player } from 'src/models/Player';
   styleUrls: ['./player-info.component.scss'],
 })
 export class PlayerInfoComponent {
-  @Input() player!: Player;
+  @Input() player?: Player;
 }
