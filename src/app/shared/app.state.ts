@@ -44,6 +44,11 @@ export class AppState {
     return players;
   }
 
+  @Selector()
+  static drawnNumbers({ drawNumbers }: AppStateModel) {
+    return drawNumbers;
+  }
+
   @Action(CreatePlayers)
   createPlayers(
     { getState, setState }: StateContext<AppStateModel>,

@@ -21,6 +21,7 @@ import { Player } from 'src/models/Player';
 export class AppComponent implements OnInit {
   @Select(AppState.resource) resource$!: Observable<Resource>;
   @Select(AppState.players) players$!: Observable<Player[]>;
+  @Select(AppState.drawnNumbers) drawnNumbers$!: Observable<number[]>;
 
   constructor(private store: Store) {}
 
