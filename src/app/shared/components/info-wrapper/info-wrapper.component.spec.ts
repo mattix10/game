@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { InfoWrapperComponent } from './info-wrapper.component';
 import { NgxsModule, Store } from '@ngxs/store';
-import { AppState } from '../../app.state';
+import { AppState } from '../../store/app.state';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AppStateModel } from 'src/models/AppStateModel';
 import { By } from '@angular/platform-browser';

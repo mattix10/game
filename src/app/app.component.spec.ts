@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { NgxsModule, Store } from '@ngxs/store';
-import { AppState } from './shared/app.state';
+import { AppState } from './shared/store/app.state';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { Resource } from 'src/models/Resource';
-import { CreatePlayers } from './shared/app-actions';
+import { CreatePlayers } from './shared/components/app-actions';
 
 describe('AppComponent', () => {
   let app: AppComponent;

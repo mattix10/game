@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
-import { AppState } from '../../app.state';
+import { AppState } from '../../store/app.state';
 
 @Component({
   selector: 'app-info-wrapper',

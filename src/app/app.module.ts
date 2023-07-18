@@ -4,7 +4,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxsModule } from '@ngxs/store';
-import { AppState } from './shared/app.state';
+import { AppState } from './shared/store/app.state';
 import { PersonCardComponent } from './shared/components/person-card/person-card.component';
 import { StarshipCardComponent } from './shared/components/starship-card/starship-card.component';
 import { MatCardModule } from '@angular/material/card';

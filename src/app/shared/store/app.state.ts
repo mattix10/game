@@ -13,11 +13,11 @@ import {
   LoadStarships,
   ResetData,
   SetError,
-} from './app-actions';
+} from '../components/app-actions';
 import { Injectable } from '@angular/core';
-import { HttpDataService } from '../services/http-data/http-data.service';
+import { HttpDataService } from '../../services/http-data/http-data.service';
 import { catchError, tap, throwError } from 'rxjs';
-import { drawNumbers, getWinnerName } from '../utils/utils';
+import { drawNumbers, getWinnerName } from '../../utils/utils';
 import { AppStateModel } from 'src/models/AppStateModel';
 
 @State<AppStateModel>({

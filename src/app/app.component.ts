@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AppState } from './shared/app.state';
+import { AppState } from './shared/store/app.state';
 import { Store, Select } from '@ngxs/store';
 import {
   AddPointsToWinner,
@@ -10,7 +10,7 @@ import {
   DrawNumbers,
   LoadData,
   ResetData,
-} from './shared/app-actions';
+} from './shared/components/app-actions';
 import { Resource } from 'src/models/Resource';
 import { Player } from 'src/models/Player';
 @Component({
