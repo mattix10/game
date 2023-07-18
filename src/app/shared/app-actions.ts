@@ -22,10 +22,6 @@ export class LoadStarships {
   static readonly type = '[Player] LoadStarships';
 }
 
-export class GetResourceType {
-  static readonly type = '[App] GetResourceType';
-}
-
 export class ChangeResource {
   static readonly type = '[App] ChangeResource';
   constructor(public resource: Resource) {}
