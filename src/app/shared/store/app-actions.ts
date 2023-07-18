@@ -5,11 +5,6 @@ export class CreatePlayers {
   constructor(public playerNames: string[]) {}
 }
 
-export class ClearPeople {
-  static readonly type = '[Player] ClearPeople';
-  constructor(public payload: any) {}
-}
-
 export class SetError {
   static readonly type = '[App] SetError';
   constructor(public error: string) {}
