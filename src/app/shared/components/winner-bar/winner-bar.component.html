@@ -1,0 +1,5 @@
+<div class="winner-container" [class.backgroud-blue]="winner">
+  <h2 *ngIf="winner">
+    {{ winner === "Draw" ? winner : "The winner is: " + winner }}
+  </h2>
+</div>
