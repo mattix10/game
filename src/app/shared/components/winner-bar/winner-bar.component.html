@@ -1,4 +1,10 @@
-<div class="winner-container" [class.backgroud-blue]="winner">
+<div
+  class="winner-container"
+  [ngClass]="{
+    'bg-orange':winner === 'Draw',
+    'bg-blue':winner,
+  }"
+>
   <h2 *ngIf="winner">
     {{ winner === "Draw" ? winner : "The winner is: " + winner }}
   </h2>
