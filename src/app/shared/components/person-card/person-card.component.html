@@ -1,20 +1,18 @@
-<mat-card class="card">
-  <ng-container>
-    <mat-card-header>
-      <mat-card-subtitle>mass: {{ person.mass }}</mat-card-subtitle>
-      <mat-card-title>{{ person.name }}</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <p>height: {{ person.height }}</p>
-      <p>birth year: {{ person.birth_year }}</p>
-      <p>eye color: {{ person.eye_color }}</p>
-      <p>hair color: {{ person.hair_color }}</p>
-      <p>gender: {{ person.gender }}</p>
-      <p>skin color: {{ person.skin_color }}</p>
-      <p>created: {{ person.created }}</p>
-      <p>edited: {{ person.edited }}</p>
-      <p>url: {{ person.url }}</p>
-      <p>homeworld: {{ person.homeworld }}</p>
-    </mat-card-content>
-  </ng-container>
+<mat-card class="card" *ngIf="person">
+  <mat-card-header>
+    <mat-card-subtitle>mass: {{ person.mass }}</mat-card-subtitle>
+    <mat-card-title>{{ person.name }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>height: {{ person.height }}</p>
+    <p>birth year: {{ person.birth_year }}</p>
+    <p>eye color: {{ person.eye_color }}</p>
+    <p>hair color: {{ person.hair_color }}</p>
+    <p>gender: {{ person.gender }}</p>
+    <p>skin color: {{ person.skin_color }}</p>
+    <p>created: {{ person.created }}</p>
+    <p>edited: {{ person.edited }}</p>
+    <p>url: {{ person.url }}</p>
+    <p>homeworld: {{ person.homeworld }}</p>
+  </mat-card-content>
 </mat-card>

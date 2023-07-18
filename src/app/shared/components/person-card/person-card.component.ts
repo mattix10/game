@@ -7,5 +7,5 @@ import { Person } from 'src/models/Person';
   styleUrls: ['./person-card.component.scss'],
 })
 export class PersonCardComponent {
-  @Input() person!: Person;
+  @Input() person?: Person;
 }
