@@ -6,6 +6,6 @@ export interface AppStateModel {
   resource: Resource;
   winner: string | null;
   drawNumbers: number[];
-  loading: false;
-  error: boolean | null;
+  loading: boolean;
+  error: string | null;
 }

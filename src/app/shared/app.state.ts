@@ -12,10 +12,11 @@ import {
   LoadPeople,
   LoadStarships,
   ResetData,
+  SetError,
 } from './app-actions';
 import { Injectable } from '@angular/core';
 import { HttpDataService } from '../services/http-data/http-data.service';
-import { tap } from 'rxjs';
+import { catchError, tap, throwError } from 'rxjs';
 import { drawNumbers, getWinnerName } from '../utils/utils';
 import { AppStateModel } from 'src/models/AppStateModel';
 
@@ -45,8 +46,23 @@ export class AppState {
   }
 
   @Selector()
+  static error({ error }: AppStateModel) {
+    return error;
+  }
+
+  @Selector()
+  static loading({ loading }: AppStateModel) {
+    return loading;
+  }
+
+  @Selector()
   static drawnNumbers({ drawNumbers }: AppStateModel) {
     return drawNumbers;
+  }
+
+  @Action(SetError)
+  setError({ patchState }: StateContext<AppStateModel>, { error }: SetError) {
+    patchState({ error });
   }
 
   @Action(CreatePlayers)
@@ -66,10 +82,22 @@ export class AppState {
   }
 
   @Action(LoadData)
-  loadData({ getState, dispatch }: StateContext<AppStateModel>) {
-    return getState().resource === Resource.People
-      ? dispatch(new LoadPeople())
-      : dispatch(new LoadStarships());
+  loadData({ getState, patchState, dispatch }: StateContext<AppStateModel>) {
+    patchState({ loading: true });
+    const obs$ =
+      getState().resource === Resource.People
+        ? dispatch(new LoadPeople())
+        : dispatch(new LoadStarships());
+    return obs$.pipe(
+      tap(() => patchState({ loading: false })),
+      catchError((error) =>
+        throwError(() => {
+          patchState({ loading: false });
+          dispatch(new SetError('Ooops... something went wrong. Try again.'));
+          return error;
+        })
+      )
+    );
   }
 
   @Action(LoadPeople)

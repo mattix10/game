@@ -10,6 +10,11 @@ export class ClearPeople {
   constructor(public payload: any) {}
 }
 
+export class SetError {
+  static readonly type = '[App] SetError';
+  constructor(public error: string) {}
+}
+
 export class LoadData {
   static readonly type = '[Player] LoadData';
 }
