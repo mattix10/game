@@ -5,11 +5,6 @@ export class CreatePlayers {
   constructor(public playerNames: string[]) {}
 }
 
-export class SetError {
-  static readonly type = '[App] SetError';
-  constructor(public error: string) {}
-}
-
 export class LoadData {
   static readonly type = '[Player] LoadData';
 }
@@ -20,6 +15,11 @@ export class LoadPeople {
 
 export class LoadStarships {
   static readonly type = '[Player] LoadStarships';
+}
+
+export class SetError {
+  static readonly type = '[App] SetError';
+  constructor(public error: string) {}
 }
 
 export class ChangeResource {
